@@ -1,0 +1,10 @@
+﻿# VCG
+# Test file for unit testing
+# ----------------------------------------------------------------------------
+
+import my.package.here ;
+import static the.import.*;
+
+$test = hello [my friendly] computer 12;  # Yes
+
+$some_thing @func = yes [(and | or) "no"];

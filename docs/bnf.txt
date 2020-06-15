@@ -1,0 +1,30 @@
+// The 'custom' Backus-Naur Form with regular expressions. Comments (the # 
+// symbol) cause the rest of the line to be ignored. Assume that all quoted
+// strings are case insensitive. All 'text' when parsed is to be split by 
+// spaces.
+// --------------------------------------------------------------------------|
+
+vcgfile = (import | rule)*
+
+import = "import" package ["as" identifier] ";"
+package = word ("." word)*
+
+rule = ["private"] variable [function] "=" expressions ";"
+
+expression = (repeatexpression | optional)+
+repeatexpression = (choices | word | quotedword | variable)+ [repeatable]
+repeatable = repeat | "*" | "+"
+repeat = "{" number ["," [number]] "}"
+
+pipeexpression = expression ("|" expression)*
+choices = "(" pipeexpression ")"
+optional = "[" pipeexpression "]"
+
+// ----------------------------
+
+letter = [a-zA-Z]
+word = letter+
+identifierchar = letter [a-zA-Z0-9_]*
+quotedword = "\"" " "* word (word | " ")* "\""
+variable = "$" identifierchar+
+function = "@" identifierchar+

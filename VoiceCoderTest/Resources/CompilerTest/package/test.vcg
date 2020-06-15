@@ -1,0 +1,7 @@
+﻿# VCG
+# Test file for unit testing
+# ----------------------------------------------------------------------------
+
+import package.inner as yes;
+
+$test = a* (b{3} c+ | (d | e{2,9}) [f]) ((g)) h{3,};

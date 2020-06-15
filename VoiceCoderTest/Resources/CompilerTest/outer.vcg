@@ -1,0 +1,7 @@
+﻿# VCG
+# Test file for unit testing
+# ----------------------------------------------------------------------------
+
+import static package;
+
+$outer @outerfunc = outer [test];
